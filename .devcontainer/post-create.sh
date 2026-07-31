@@ -6,6 +6,7 @@ echo "==> Configurando o laboratorio mwe-2026-2-lab08-agentes-worktrees"
 
 # --- Dependencias da stack -------------------------------------------------
 if [ -f requirements.txt ]; then pip install --user -r requirements.txt; fi
+pip install --user pytest >/dev/null 2>&1 || true
 
 # --- Ollama: SLM rodando dentro do proprio container -----------------------
 # Backend único de IA dos laboratórios, decisão registrada na ADR-005 do
@@ -32,18 +33,18 @@ for _ in $(seq 1 30); do
   sleep 1
 done
 
-echo "==> Baixando o modelo qwen2.5:1.5b (uso unico, fica em cache)"
-ollama pull qwen2.5:1.5b || echo "    AVISO: falha ao baixar o modelo. Rode 'ollama pull qwen2.5:1.5b' manualmente."
+echo "==> Baixando o modelo qwen3.5:2b (uso unico, fica em cache)"
+ollama pull qwen3.5:2b || echo "    AVISO: falha ao baixar o modelo. Rode 'ollama pull qwen3.5:2b' manualmente."
 
 # --- Verificacao do backend de IA -----------------------------------------
 if curl -sf --connect-timeout 5 http://localhost:11434/api/tags >/dev/null 2>&1 \
-   && ollama list 2>/dev/null | grep -q "qwen2.5:1.5b"; then
-  echo "==> Backend de IA pronto: Ollama respondendo com o modelo qwen2.5:1.5b."
+   && ollama list 2>/dev/null | grep -q "qwen3.5:2b"; then
+  echo "==> Backend de IA pronto: Ollama respondendo com o modelo qwen3.5:2b."
   echo "    Teste com: python ai/ask.py \"diga olá\""
 else
-  echo "==> AVISO: o Ollama não confirmou o modelo qwen2.5:1.5b."
+  echo "==> AVISO: o Ollama não confirmou o modelo qwen3.5:2b."
   echo "    Suba o servidor com: ollama serve"
-  echo "    Depois baixe o modelo com: ollama pull qwen2.5:1.5b"
+  echo "    Depois baixe o modelo com: ollama pull qwen3.5:2b"
 fi
 
 echo ""

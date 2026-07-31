@@ -20,7 +20,7 @@ import urllib.error
 import urllib.request
 
 BASE_URL = os.environ.get("OLLAMA_HOST", "http://localhost:11434").rstrip("/")
-MODELO = os.environ.get("OLLAMA_MODEL", "qwen2.5:1.5b")
+MODELO = os.environ.get("OLLAMA_MODEL", "qwen3.5:2b")
 TIMEOUT = int(os.environ.get("AI_TIMEOUT", "300"))
 
 

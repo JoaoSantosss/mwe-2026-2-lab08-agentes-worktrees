@@ -2,9 +2,11 @@
   "name": "mwe-2026-2-lab08-agentes-worktrees",
   "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
   "features": {
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
   "forwardPorts": [
+    8080,
     11434
   ],
   "postCreateCommand": "bash .devcontainer/post-create.sh",
@@ -16,7 +18,8 @@
         "GitHub.vscode-pull-request-github",
         "eamodio.gitlens",
         "ms-python.python",
-        "charliermarsh.ruff"
+        "charliermarsh.ruff",
+        "ms-azuretools.vscode-docker"
       ],
       "settings": {
         "editor.formatOnSave": true,

@@ -1,23 +1,6 @@
-# Dependencias
-node_modules/
 __pycache__/
 *.py[cod]
+.pytest_cache/
 .venv/
 venv/
-target/
-bin/
-obj/
-
-# Ambiente
-.env
-.env.local
-
-# Editor
 .DS_Store
-.idea/
-*.swp
-
-# Build
-dist/
-build/
-*.log
