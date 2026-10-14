@@ -18,3 +18,5 @@ auditado não é uma trilha de auditoria.
 
 | Momento | Ferramenta | Veredito | Argumentos | Resultado |
 |---|---|---|---|---|
+| 2026-10-14T01:17:35 | consultar_status_pedido | AUTORIZADO | {} | {"atualizadoEm": "2026-10-14T00:54:08", "pedidoId": "PED-1042", "previsaoEntrega": "2026-10-16", "status": "EM_TRANSITO", "transportadora": "LogiTech Frota 0... |
+| 2026-10-14T01:17:40 | consultar_status_pedido | AUTORIZADO | {} | {"atualizadoEm": "2026-10-14T00:54:08", "pedidoId": "PED-1042", "previsaoEntrega": "2026-10-16", "status": "EM_TRANSITO", "transportadora": "LogiTech Frota 0... |

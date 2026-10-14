@@ -77,6 +77,7 @@ class ConsultarStatusPedido(Comando):
     esquema = esquemas.ESQUEMA_CONSULTAR_STATUS
 
     def executar(self, argumentos):
+
         # -------------------------------------------------------------------
         # TODO-3: implemente a execução deste comando.
         #
@@ -93,9 +94,10 @@ class ConsultarStatusPedido(Comando):
         #   - não capture ErroDeApi: o Despachante já trata, e registra
         #     FALHOU na auditoria com o motivo real.
         # -------------------------------------------------------------------
-        raise NotImplementedError(
-            "TODO-3: implemente ConsultarStatusPedido.executar em "
-            "agente/comandos.py")
+
+        pedido_id = argumentos.pop("pedido_id")
+        return api_pedidos.obter_status(pedido_id)
+        
 
 
 class AlterarEnderecoEntrega(Comando):
