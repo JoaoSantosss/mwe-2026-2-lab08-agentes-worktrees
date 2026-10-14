@@ -71,7 +71,23 @@ ESQUEMA_CONSULTAR_STATUS = {
 #
 # O `cep` em `required` é o que faz a lacuna TODO-5 existir: sem ele aqui, a
 # chamada malformada passa direto e chega ao serviço.
-ESQUEMA_ALTERAR_ENDERECO = {}
+ESQUEMA_ALTERAR_ENDERECO = {
+    "type": "object",
+    "properties": {
+        "pedido_id": {"type": "string", "description": "PED-1042",
+                      "pattern": "^PED-[0-9]{4}$"},
+        "logradouro": {"type": "string", "description": "Nome da rua ou avenida"},
+        "numero": {"type": "string", "description": "Número do endereço"},
+        "cidade": {"type": "string", "description": "Nome da cidade"},
+        "uf": {"type": "string", "description": "Sigla do estado",
+               "pattern": "^[A-Z]{2}$"},
+        "cep": {"type": "string", "description": "Código postal",
+                "pattern": "^([0-9]{5}-[0-9]{3})$"},
+        "complemento": {"type": "string", "description": "Informações adicionais sobre o endereço"}
+    },
+    "required": ["pedido_id", "logradouro", "numero", "cidade", "uf", "cep"],
+    "additionalProperties": False,
+}
 
 
 # ---------------------------------------------------------------------------
