@@ -17,8 +17,8 @@ curl -s http://localhost:8080/api/v1/pedidos/PED-1044 | python3 -m json.tool
 ```
 
 ```
-PEDIDO_ALTERADO_ID: PREENCHER
-CEP_NOVO: PREENCHER
+PEDIDO_ALTERADO_ID: PED-1044
+CEP_NOVO: 01311-000
 ```
 
 ---
@@ -30,7 +30,7 @@ motivo exatamente como o Despachante registrou em `docs/AUDITORIA.md`, coluna
 `Resultado` da linha `RECUSADO`.
 
 ```
-MOTIVO_DA_RECUSA: PREENCHER
+MOTIVO_DA_RECUSA: Faltava o CEP na primeira tentativa, e por isso ela foi recusada antes de chegar ao sistema. Com o CEP 01415-000 informado, o endereço do pedido PED-1043 foi atualizado.
 ```
 
 Responda também, em uma frase, olhando o terminal onde o serviço de Pedidos
@@ -38,7 +38,7 @@ está rodando: **apareceu alguma requisição `PATCH` no log do serviço no
 momento da recusa?** Se apareceu, a validação aconteceu tarde demais.
 
 ```
-PATCH_CHEGOU_AO_SERVICO: PREENCHER
+PATCH_CHEGOU_AO_SERVICO: Sim porém somente quando o despachante autorizou.
 ```
 
 ---
@@ -49,10 +49,10 @@ Os dois diretórios de trabalho criados, e as branches ligadas a cada um. Cole
 o valor lido de `git worktree list`.
 
 ```
-WORKTREE_PEDIDOS: PREENCHER
-WORKTREE_ATENDIMENTO: PREENCHER
-BRANCH_PEDIDOS: PREENCHER
-BRANCH_ATENDIMENTO: PREENCHER
+WORKTREE_PEDIDOS: /workspaces/wt-agente-pedidos
+WORKTREE_ATENDIMENTO: /workspaces/wt-agente-atendimento
+BRANCH_PEDIDOS: 682fbdd [agente/pedidos]
+BRANCH_ATENDIMENTO: 682fbdd [agente/atendimento]
 ```
 
 Responda em uma frase: com os dois agentes rodando ao mesmo tempo, o que
@@ -60,7 +60,7 @@ aconteceria se, em vez de worktrees, vocês tivessem usado `git checkout` no
 mesmo diretório?
 
 ```
-O_QUE_ACONTECERIA_COM_CHECKOUT: PREENCHER
+O_QUE_ACONTECERIA_COM_CHECKOUT: fatal: 'agente/pedidos' is already used by worktree at '/workspaces/wt-agente-pedidos'
 ```
 
 ---
