@@ -97,7 +97,6 @@ class ConsultarStatusPedido(Comando):
 
         pedido_id = argumentos.pop("pedido_id")
         return api_pedidos.obter_status(pedido_id)
-        
 
 
 class AlterarEnderecoEntrega(Comando):
@@ -132,12 +131,11 @@ class AlterarEnderecoEntrega(Comando):
 
         pedido_id = argumentos.pop("pedido_id")
         endereco = {
-            campo: argumentos[campo] 
-            for campo in self.CAMPOS_DO_ENDERECO 
+            campo: argumentos[campo]
+            for campo in self.CAMPOS_DO_ENDERECO
             if campo in argumentos
-            }
+        }
         return api_pedidos.alterar_endereco(pedido_id, endereco)
-       
 
 
 class Despachante:
@@ -158,7 +156,7 @@ class Despachante:
 
     def _auditar(self, ferramenta, veredito, argumentos, resultado):
         return auditoria.registrar(ferramenta, veredito, argumentos, resultado,
-                                    caminho=self.caminho_auditoria)
+                                   caminho=self.caminho_auditoria)
 
     def despachar(self, nome, argumentos):
         """Recebe a intenção do modelo e devolve um `Resultado` auditado."""
@@ -203,9 +201,14 @@ class Despachante:
             # auditoria e NENHUM PATCH chegando ao serviço de Pedidos. Se o
             # log do serviço mostrar um 400, a recusa aconteceu tarde demais.
             # ---------------------------------------------------------------
-            raise NotImplementedError(
-                "TODO-5: implemente a recusa auditada em "
-                "agente/comandos.py, classe Despachante")
+            motivo = "; ".join(erros)
+            self._auditar(nome, auditoria.RECUSADO, argumentos, motivo)
+            return Resultado(auditoria.RECUSADO, {
+                "erro": "argumentos recusados pela validação",
+                "detalhes": erros,
+                "orientacao": ("peça ao cliente os dados que faltaram e chame "
+                               "a ferramenta de novo com o conjunto completo"),
+            }, motivo)
 
         # Caso 3, PRONTO: argumentos válidos. Executa e audita o resultado.
         try:
