@@ -71,8 +71,8 @@ Números lidos de `docs/AUDITORIA.md` depois das suas conversas. O mínimo é
 **3 execuções autorizadas** e **1 recusa**.
 
 ```
-EXECUCOES_AUTORIZADAS: PREENCHER
-RECUSAS_REGISTRADAS: PREENCHER
+EXECUCOES_AUTORIZADAS: 5
+RECUSAS_REGISTRADAS: 1
 ```
 
 ---
@@ -85,7 +85,7 @@ três respostas valem: o modo `--simular` existe justamente para o laboratório
 não depender do acerto de um modelo de 2 bilhões de parâmetros.
 
 ```
-MODO_USADO: PREENCHER
+MODO_USADO: os dois
 ```
 
 Se você rodou com o Ollama, registre em quantas tentativas o modelo produziu
@@ -93,7 +93,7 @@ a chamada de ferramenta correta. Errar faz parte, e o número é informação ú
 para a turma inteira.
 
 ```
-TENTATIVAS_ATE_O_MODELO_ACERTAR: PREENCHER
+TENTATIVAS_ATE_O_MODELO_ACERTAR: 2
 ```
 
 ---
@@ -106,7 +106,7 @@ escrever a lacuna. Usar o resgate não reprova critério nenhum que o
 precisa ter na correção.
 
 ```
-USEI_O_RESGATE: PREENCHER
+USEI_O_RESGATE: não
 ```
 
 Se você não usou o resgate, escreva `USEI_O_RESGATE: não`.
