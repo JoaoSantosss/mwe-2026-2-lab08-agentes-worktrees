@@ -20,3 +20,4 @@ auditado não é uma trilha de auditoria.
 |---|---|---|---|---|
 | 2026-10-14T01:17:35 | consultar_status_pedido | AUTORIZADO | {} | {"atualizadoEm": "2026-10-14T00:54:08", "pedidoId": "PED-1042", "previsaoEntrega": "2026-10-16", "status": "EM_TRANSITO", "transportadora": "LogiTech Frota 0... |
 | 2026-10-14T01:17:40 | consultar_status_pedido | AUTORIZADO | {} | {"atualizadoEm": "2026-10-14T00:54:08", "pedidoId": "PED-1042", "previsaoEntrega": "2026-10-16", "status": "EM_TRANSITO", "transportadora": "LogiTech Frota 0... |
+| 2026-10-14T01:22:14 | alterar_endereco_entrega | AUTORIZADO | {"cep": "01311-000", "cidade": "São Paulo", "complemento": "9o andar", "logradouro": "Avenida Paulista", "numero": "1106", "uf": "SP"} | {"atualizadoEm": "2026-10-14T01:22:14", "enderecoEntrega": {"cep": "01311-000", "cidade": "São Paulo", "complemento": "9o andar", "logradouro": "Avenida Paul... |

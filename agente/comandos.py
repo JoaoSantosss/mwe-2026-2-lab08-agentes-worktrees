@@ -129,9 +129,15 @@ class AlterarEnderecoEntrega(Comando):
         # docs/AUDITORIA.md acontece DEPOIS, também no Despachante, com o
         # resultado real da chamada.
         # -------------------------------------------------------------------
-        raise NotImplementedError(
-            "TODO-4: implemente AlterarEnderecoEntrega.executar em "
-            "agente/comandos.py")
+
+        pedido_id = argumentos.pop("pedido_id")
+        endereco = {
+            campo: argumentos[campo] 
+            for campo in self.CAMPOS_DO_ENDERECO 
+            if campo in argumentos
+            }
+        return api_pedidos.alterar_endereco(pedido_id, endereco)
+       
 
 
 class Despachante:
