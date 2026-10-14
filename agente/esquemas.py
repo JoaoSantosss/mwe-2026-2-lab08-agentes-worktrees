@@ -37,13 +37,21 @@ a API de tool calling do Ollama e a API compatível com OpenAI esperam.
 #   {
 #       "type": "object",
 #       "properties": {
-#           "placa": {"type": "string", "description": "Placa do caminhão",
+#           "placa": {"type": "string", "description": "PED-1042",
 #                      "pattern": "^[A-Z]{3}[0-9][A-Z0-9][0-9]{2}$"},
 #       },
-#       "required": ["placa"],
+#       "required": ["pedido_id"],
 #       "additionalProperties": False,
 #   }
-ESQUEMA_CONSULTAR_STATUS = {}
+ESQUEMA_CONSULTAR_STATUS = {
+    "type": "object",
+    "properties": {
+        "pedido_id": {"type": "string", "description": "PED-1042",
+                      "pattern": "^PED-[0-9]{4}$"},
+    },
+    "required": ["pedido_id"],
+    "additionalProperties": False,
+}
 
 
 # ---------------------------------------------------------------------------
